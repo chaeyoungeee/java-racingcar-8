@@ -40,4 +40,18 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.CAR_NAME_DUPLICATE.getMessage());
     }
+
+    @DisplayName("시도 횟수가 0 혹은 양의 정수가 아닐 경우 예외가 발생한다.")
+    @ParameterizedTest
+    @ValueSource(strings = {
+            "-1",
+            "one",
+            "1.5"
+    })
+    void tryCountInvalid(String input) {
+        assertThatThrownBy(() -> InputValidator.validatePositiveInteger(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessageMatching(ErrorMessage.TRY_COUNT_INVALID.getMessage() + "|" +
+                        ErrorMessage.TRY_COUNT_NEGATIVE.getMessage());
+    }
 }
