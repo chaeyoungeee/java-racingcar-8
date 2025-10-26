@@ -3,6 +3,7 @@ package racingcar.view;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.Arrays;
 import java.util.List;
+import racingcar.exception.InputValidator;
 
 public class InputView {
 
@@ -14,7 +15,10 @@ public class InputView {
 
     public List<String> inputCarName() {
         String input = readInput();
-        return splitCarName(input);
+        List<String> carNames = splitCarName(input);
+        InputValidator.validateCarNames(carNames);
+        return carNames;
+    }
     }
 
     public static List<String> splitCarName(String input) {
