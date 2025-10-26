@@ -30,4 +30,14 @@ class InputValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.CAR_NAME_TOO_LONG.getMessage());
     }
+
+    @DisplayName("중복된 자동차 이름이 존재할 경우 예외가 발생한다.")
+    @Test
+    void carNameDuplicate() {
+        String input = "pobi,woni,pobi";
+        List<String> carNames = InputView.splitCarName(input);
+        assertThatThrownBy(() -> InputValidator.validateNoDuplicateNames(carNames))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage(ErrorMessage.CAR_NAME_DUPLICATE.getMessage());
+    }
 }
