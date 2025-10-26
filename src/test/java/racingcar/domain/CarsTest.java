@@ -60,4 +60,13 @@ class CarsTest {
         assertThat(results).extracting("name").containsExactlyElementsOf(carNames);
         assertThat(results).extracting("forwardCount").containsExactly(1, 0, 1);
     }
+
+    @DisplayName("가장 멀리 간 자동차들을 리스트로 반환한다.")
+    @Test
+    void getWinner() {
+        Cars cars = Cars.of(carNames, customRandomNumberGenerator);
+        cars.move();
+        List<String> winners = cars.getWinner();
+        assertThat(winners).containsExactlyInAnyOrder("pobi", "jun");
+    }
 }
