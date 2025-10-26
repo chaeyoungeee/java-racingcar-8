@@ -5,6 +5,7 @@ import racingcar.dto.CarStatusDto;
 import racingcar.utils.RandomNumberGenerator;
 
 public class Racing {
+    
     private final Cars cars;
     private final Attempts attempts;
 

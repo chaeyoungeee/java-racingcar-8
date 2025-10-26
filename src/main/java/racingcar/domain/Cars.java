@@ -7,8 +7,8 @@ import racingcar.utils.RandomNumberGenerator;
 public class Cars {
 
     private final List<Car> cars;
-    private static final int MOVEMENT_THRESHOLD = 4;
     private final RandomNumberGenerator randomNumberGenerator;
+    private static final int MOVEMENT_THRESHOLD = 4;
 
     private Cars(List<Car> cars, RandomNumberGenerator randomNumberGenerator) {
         this.cars = cars;
@@ -17,8 +17,8 @@ public class Cars {
 
     public static Cars of(List<String> carNames, RandomNumberGenerator randomNumberGenerator) {
         List<Car> cars = carNames.stream()
-                                 .map(Car::from)
-                                 .toList();
+                .map(Car::from)
+                .toList();
         return new Cars(cars, randomNumberGenerator);
     }
 

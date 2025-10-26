@@ -31,8 +31,7 @@ public class OutputView {
     }
 
     public void printResult(List<CarStatusDto> result) {
-        result.forEach(
-                status -> {
+        result.forEach(status -> {
                     System.out.println(status.getName() + " : " + "-".repeat(status.getForwardCount()));
                 }
         );

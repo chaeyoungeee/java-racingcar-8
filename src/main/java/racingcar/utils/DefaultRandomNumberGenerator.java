@@ -9,7 +9,6 @@ public class DefaultRandomNumberGenerator implements RandomNumberGenerator {
 
     @Override
     public int generate() {
-
         return Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
     }
 }
