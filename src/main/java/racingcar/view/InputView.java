@@ -22,6 +22,7 @@ public class InputView {
 
     public Integer inputTryCount() {
         String input = readInput();
+        InputValidator.validateTryCount(input);
         return Integer.parseInt(input);
     }
 

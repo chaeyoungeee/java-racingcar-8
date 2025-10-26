@@ -3,6 +3,8 @@ package racingcar.exception;
 import static racingcar.exception.ErrorMessage.CAR_NAME_DUPLICATE;
 import static racingcar.exception.ErrorMessage.CAR_NAME_TOO_LONG;
 import static racingcar.exception.ErrorMessage.INPUT_BLANK;
+import static racingcar.exception.ErrorMessage.TRY_COUNT_INVALID;
+import static racingcar.exception.ErrorMessage.TRY_COUNT_NEGATIVE;
 
 import java.util.HashSet;
 import java.util.List;
@@ -18,6 +20,11 @@ public class InputValidator {
             validateMaxNameLength(name);
         });
         validateNoDuplicateNames(names);
+    }
+
+    public static void validateTryCount(String tryCount) {
+        validateNotBlank(tryCount);
+        validatePositiveInteger(tryCount);
     }
 
     public static void validateNotBlank(String value) {
@@ -39,5 +46,17 @@ public class InputValidator {
                 throw new IllegalArgumentException(CAR_NAME_DUPLICATE.getMessage());
             }
         }));
+    }
+
+    public static void validatePositiveInteger(String tryCount) {
+        int value;
+        try {
+            value = Integer.parseInt(tryCount);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException(TRY_COUNT_INVALID.getMessage());
+        }
+        if (value < 0) {
+            throw new IllegalArgumentException(TRY_COUNT_NEGATIVE.getMessage());
+        }
     }
 }
