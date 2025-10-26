@@ -1,6 +1,6 @@
 package racingcar.domain;
 
-import racingcar.dto.CarStatus;
+import racingcar.dto.CarStatusDto;
 
 public class Car {
 
@@ -22,8 +22,8 @@ public class Car {
         }
     }
 
-    public CarStatus getStatus() {
-        return CarStatus.of(name, forwardCount);
+    public CarStatusDto getStatus() {
+        return CarStatusDto.of(name, forwardCount);
     }
 
     public String getNameValue() {

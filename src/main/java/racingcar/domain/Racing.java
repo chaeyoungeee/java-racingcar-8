@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
-import racingcar.dto.CarStatus;
+import racingcar.dto.CarStatusDto;
 import racingcar.utils.RandomNumberGenerator;
 
 public class Racing {
@@ -26,7 +26,7 @@ public class Racing {
         return tryCount.canAttempt();
     }
 
-    public List<CarStatus> getResult() {
+    public List<CarStatusDto> getResult() {
         return cars.getResult();
     }
 

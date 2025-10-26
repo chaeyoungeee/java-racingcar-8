@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 import java.util.List;
-import racingcar.dto.CarStatus;
+import racingcar.dto.CarStatusDto;
 import racingcar.utils.RandomNumberGenerator;
 
 public class Cars {
@@ -29,7 +29,7 @@ public class Cars {
         });
     }
 
-    public List<CarStatus> getResult() {
+    public List<CarStatusDto> getResult() {
         return cars.stream().map(Car::getStatus).toList();
     }
 

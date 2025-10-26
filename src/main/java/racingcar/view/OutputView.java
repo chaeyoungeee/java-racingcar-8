@@ -1,7 +1,7 @@
 package racingcar.view;
 
 import java.util.List;
-import racingcar.dto.CarStatus;
+import racingcar.dto.CarStatusDto;
 
 public class OutputView {
 
@@ -30,10 +30,10 @@ public class OutputView {
         System.out.println();
     }
 
-    public void printResult(List<CarStatus> result) {
+    public void printResult(List<CarStatusDto> result) {
         result.forEach(
                 status -> {
-                    System.out.println(status.getCarName() + " : " + "-".repeat(status.getForwardCount()));
+                    System.out.println(status.getName() + " : " + "-".repeat(status.getForwardCount()));
                 }
         );
     }

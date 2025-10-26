@@ -2,7 +2,7 @@ package racingcar.controller;
 
 import java.util.List;
 import racingcar.domain.Racing;
-import racingcar.dto.CarStatus;
+import racingcar.dto.CarStatusDto;
 import racingcar.utils.DefaultRandomNumberGenerator;
 import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
@@ -38,7 +38,7 @@ public class RacingController {
         outputView.printResultOutputMessage();
         while (racing.can()) {
             racing.run();
-            List<CarStatus> result = racing.getResult();
+            List<CarStatusDto> result = racing.getResult();
             outputView.printResult(result);
             outputView.println();
         }
