@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.List;
 import racingcar.dto.CarStatus;
+import racingcar.utils.RandomNumberGenerator;
 
 public class Racing {
     private final Cars cars;
@@ -12,8 +13,8 @@ public class Racing {
         this.tryCount = tryCount;
     }
 
-    public static Racing of(List<String> cars, int tryCount) {
-        return new Racing(Cars.from(cars), TryCount.from(tryCount));
+    public static Racing of(List<String> carNames, int tryCount, RandomNumberGenerator randomNumberGenerator) {
+        return new Racing(Cars.of(carNames, randomNumberGenerator), TryCount.from(tryCount));
     }
 
     public void run() {

@@ -3,6 +3,8 @@ package racingcar.controller;
 import java.util.List;
 import racingcar.domain.Racing;
 import racingcar.dto.CarStatus;
+import racingcar.utils.DefaultRandomNumberGenerator;
+import racingcar.utils.RandomNumberGenerator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -28,7 +30,8 @@ public class RacingController {
         outputView.printTryCountInputMessage();
         int tryCount = inputView.inputTryCount();
         outputView.println();
-        return Racing.of(carNames, tryCount);
+        RandomNumberGenerator randomNumberGenerator = new DefaultRandomNumberGenerator();
+        return Racing.of(carNames, tryCount, randomNumberGenerator);
     }
 
     private void executeRaceAndPrintResults(Racing racing) {
