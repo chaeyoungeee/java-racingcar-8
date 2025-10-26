@@ -19,6 +19,10 @@ public class InputView {
         InputValidator.validateCarNames(carNames);
         return carNames;
     }
+
+    public Integer inputTryCount() {
+        String input = readInput();
+        return Integer.parseInt(input);
     }
 
     public static List<String> splitCarName(String input) {
