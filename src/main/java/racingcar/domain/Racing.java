@@ -16,6 +16,15 @@ public class Racing {
         return new Racing(Cars.from(cars), TryCount.from(tryCount));
     }
 
+    public void run() {
+        tryCount.decrement();
+        cars.move();
+    }
+
+    public boolean can() {
+        return tryCount.canAttempt();
+    }
+
     public List<CarStatus> getResult() {
         return cars.getResult();
     }
