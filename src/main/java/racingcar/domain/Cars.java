@@ -38,7 +38,6 @@ public class Cars {
                 .mapToInt(Car::getForwardCountValue)
                 .max()
                 .orElse(0);
-
         return cars.stream()
                 .filter(car -> car.getForwardCountValue() == maxForwardCount)
                 .map(Car::getNameValue)

@@ -36,7 +36,7 @@ public class RacingController {
 
     private void executeRaceAndPrintResults(Racing racing) {
         outputView.printResultOutputMessage();
-        while (racing.can()) {
+        while (racing.hasAttemptsLeft()) {
             racing.run();
             List<CarStatusDto> result = racing.getResult();
             outputView.printResult(result);

@@ -1,21 +1,22 @@
 package racingcar.domain;
 
-public class TryCount {
+public class Attempts {
+
     private int value;
 
-    private TryCount(int value) {
+    private Attempts(int value) {
         this.value = value;
     }
 
-    public static TryCount from(int tryCount) {
-        return new TryCount(tryCount);
+    public static Attempts from(int tryCount) {
+        return new Attempts(tryCount);
     }
 
     public void decrement() {
         value--;
     }
 
-    public boolean canAttempt() {
+    public boolean hasLeft() {
         return value > 0;
     }
 }
