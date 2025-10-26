@@ -19,4 +19,16 @@ public class Cars {
     public void move() {
         cars.forEach(car -> car.move(MOVEMENT_THRESHOLD));
     }
+
+    public List<String> getWinner() {
+        int maxForwardCount = cars.stream()
+                .mapToInt(Car::getForwardCountValue)
+                .max()
+                .orElse(0);
+
+        return cars.stream()
+                .filter(car -> car.getForwardCountValue() == maxForwardCount)
+                .map(Car::getNameValue)
+                .toList();
+    }
 }
