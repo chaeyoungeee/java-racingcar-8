@@ -16,6 +16,10 @@ public class Racing {
         return new Racing(Cars.from(cars), TryCount.from(tryCount));
     }
 
+    public List<CarStatus> getResult() {
+        return cars.getResult();
+    }
+
     public List<String> getWinners() {
         return cars.getWinner();
     }

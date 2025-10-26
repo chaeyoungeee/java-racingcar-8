@@ -22,4 +22,17 @@ public class Car {
         if (randomNumber >= threshold) {
             forwardCount.increment();
         }
+    }
+
+    public CarStatus getStatus() {
+        return CarStatus.of(name, forwardCount);
+    }
+
+    public String getNameValue() {
+        return name.getValue();
+    }
+
+    public int getForwardCountValue() {
+        return forwardCount.getValue();
+    }
 }
