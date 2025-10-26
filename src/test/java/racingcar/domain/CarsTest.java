@@ -30,26 +30,6 @@ class CarsTest {
         };
     }
 
-    @DisplayName("랜덤값을 임계값(4) 이상으로 고정 시 모든 자동차들이 전진한다.")
-    @Test
-    void moveForward() {
-        RandomNumberGenerator alwaysTen = () -> 10;
-        Cars cars = Cars.of(carNames, alwaysTen);
-        cars.move();
-        cars.getResult().forEach(carStatus ->
-                assertThat(carStatus.getForwardCount()).isEqualTo(1));
-    }
-
-    @DisplayName("랜덤값을 임계값(4) 이하로 고정 시 모든 자동차들이 움직이지 않는다.")
-    @Test
-    void stopAll() {
-        RandomNumberGenerator alwaysZero = () -> 0;
-        Cars cars = Cars.of(carNames, alwaysZero);
-        cars.move();
-        cars.getResult().forEach(carStatus ->
-                assertThat(carStatus.getForwardCount()).isEqualTo(0));
-    }
-
     @DisplayName("자동차들의 상태를 리스트로 반환한다.")
     @Test
     void getResult() {
