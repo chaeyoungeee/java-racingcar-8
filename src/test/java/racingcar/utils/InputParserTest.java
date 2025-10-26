@@ -1,13 +1,13 @@
-package racingcar.view;
+package racingcar.utils;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-class InputViewTest {
+class InputParserTest {
 
     @DisplayName("구분자로 자동차 이름을 분리해 리스트로 반환한다.")
     @ParameterizedTest
@@ -17,7 +17,7 @@ class InputViewTest {
             "'pobi', 1"
     })
     void splitCarName(String input, int expectedSize) {
-        List<String> result = InputView.splitCarName(input);
+        List<String> result = InputParser.splitCarName(input);
         assertThat(result.size()).isEqualTo(expectedSize);
     }
 }

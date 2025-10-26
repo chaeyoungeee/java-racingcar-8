@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
-import racingcar.view.InputView;
+import racingcar.utils.InputParser;
 
 class InputValidatorTest {
 
@@ -25,7 +25,7 @@ class InputValidatorTest {
     @Test
     void carNameTooLong() {
         String input = "pobi,woni,junnnn";
-        List<String> carNames = InputView.splitCarName(input);
+        List<String> carNames = InputParser.splitCarName(input);
         assertThatThrownBy(() -> carNames.forEach(InputValidator::validateMaxNameLength))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.CAR_NAME_TOO_LONG.getMessage());
@@ -35,7 +35,7 @@ class InputValidatorTest {
     @Test
     void carNameDuplicate() {
         String input = "pobi,woni,pobi";
-        List<String> carNames = InputView.splitCarName(input);
+        List<String> carNames = InputParser.splitCarName(input);
         assertThatThrownBy(() -> InputValidator.validateNoDuplicateNames(carNames))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.CAR_NAME_DUPLICATE.getMessage());
