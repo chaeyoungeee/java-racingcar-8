@@ -26,7 +26,7 @@ class RacingTest {
     @DisplayName("시도 횟수가 남아있으면 true를 반환한다.")
     @Test
     void hasAttemptsLeft() {
-        Racing racing = Racing.of(carNames, 3, randomNumberGenerator);
+        Racing racing = Racing.of(carNames, 3);
         assertTrue(racing.hasAttemptsLeft());
     }
 
@@ -34,9 +34,9 @@ class RacingTest {
     @Test
     void noAttemptsLeft() {
         int tryCount = 3;
-        Racing racing = Racing.of(carNames, tryCount, randomNumberGenerator);
+        Racing racing = Racing.of(carNames, tryCount);
         while (tryCount-- > 0) {
-            racing.run();
+            racing.run(randomNumberGenerator);
         }
         assertFalse(racing.hasAttemptsLeft());
     }

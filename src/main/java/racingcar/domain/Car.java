@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.dto.CarStatusDto;
+import racingcar.utils.RandomNumberGenerator;
 
 public class Car {
 
@@ -16,8 +17,8 @@ public class Car {
         return new Car(Name.from(name));
     }
 
-    public void move(int randomNumber, int threshold) {
-        if (randomNumber >= threshold) {
+    public void move(RandomNumberGenerator randomNumberGenerator, int threshold) {
+        if (randomNumberGenerator.generate() >= threshold) {
             forwardCount.increment();
         }
     }

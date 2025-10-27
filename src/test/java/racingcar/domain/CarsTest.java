@@ -33,8 +33,8 @@ class CarsTest {
     @DisplayName("자동차들의 상태를 리스트로 반환한다.")
     @Test
     void getResult() {
-        Cars cars = Cars.of(carNames, customRandomNumberGenerator);
-        cars.move();
+        Cars cars = Cars.of(carNames);
+        cars.move(customRandomNumberGenerator);
         List<CarStatusDto> results = cars.getResult();
         assertThat(results).hasSize(3);
         assertThat(results).extracting("name").containsExactlyElementsOf(carNames);
@@ -44,8 +44,8 @@ class CarsTest {
     @DisplayName("가장 멀리 간 자동차들을 리스트로 반환한다.")
     @Test
     void getWinner() {
-        Cars cars = Cars.of(carNames, customRandomNumberGenerator);
-        cars.move();
+        Cars cars = Cars.of(carNames);
+        cars.move(customRandomNumberGenerator);
         List<String> winners = cars.getWinner();
         assertThat(winners).containsExactlyInAnyOrder("pobi", "jun");
     }

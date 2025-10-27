@@ -5,7 +5,7 @@ import racingcar.dto.CarStatusDto;
 import racingcar.utils.RandomNumberGenerator;
 
 public class Racing {
-    
+
     private final Cars cars;
     private final Attempts attempts;
 
@@ -14,13 +14,13 @@ public class Racing {
         this.attempts = attempts;
     }
 
-    public static Racing of(List<String> carNames, int tryCount, RandomNumberGenerator randomNumberGenerator) {
-        return new Racing(Cars.of(carNames, randomNumberGenerator), Attempts.from(tryCount));
+    public static Racing of(List<String> carNames, int tryCount) {
+        return new Racing(Cars.of(carNames), Attempts.from(tryCount));
     }
 
-    public void run() {
+    public void run(RandomNumberGenerator randomNumberGenerator) {
         attempts.decrement();
-        cars.move();
+        cars.move(randomNumberGenerator);
     }
 
     public boolean hasAttemptsLeft() {

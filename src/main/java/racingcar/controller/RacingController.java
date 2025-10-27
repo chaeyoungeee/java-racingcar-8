@@ -30,14 +30,14 @@ public class RacingController {
         outputView.printTryCountInputMessage();
         int tryCount = inputView.inputTryCount();
         outputView.println();
-        RandomNumberGenerator randomNumberGenerator = new DefaultRandomNumberGenerator();
-        return Racing.of(carNames, tryCount, randomNumberGenerator);
+        return Racing.of(carNames, tryCount);
     }
 
     private void executeRaceAndPrintResults(Racing racing) {
         outputView.printResultOutputMessage();
+        RandomNumberGenerator randomNumberGenerator = new DefaultRandomNumberGenerator();
         while (racing.hasAttemptsLeft()) {
-            racing.run();
+            racing.run(randomNumberGenerator);
             List<CarStatusDto> result = racing.getResult();
             outputView.printResult(result);
             outputView.println();

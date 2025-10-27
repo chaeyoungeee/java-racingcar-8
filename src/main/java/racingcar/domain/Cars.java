@@ -7,25 +7,22 @@ import racingcar.utils.RandomNumberGenerator;
 public class Cars {
 
     private final List<Car> cars;
-    private final RandomNumberGenerator randomNumberGenerator;
     private static final int MOVEMENT_THRESHOLD = 4;
 
-    private Cars(List<Car> cars, RandomNumberGenerator randomNumberGenerator) {
+    private Cars(List<Car> cars) {
         this.cars = cars;
-        this.randomNumberGenerator = randomNumberGenerator;
     }
 
-    public static Cars of(List<String> carNames, RandomNumberGenerator randomNumberGenerator) {
+    public static Cars of(List<String> carNames) {
         List<Car> cars = carNames.stream()
                 .map(Car::from)
                 .toList();
-        return new Cars(cars, randomNumberGenerator);
+        return new Cars(cars);
     }
 
-    public void move() {
+    public void move(RandomNumberGenerator randomNumberGenerator) {
         cars.forEach(car -> {
-            int randomNumber = randomNumberGenerator.generate();
-            car.move(randomNumber, MOVEMENT_THRESHOLD);
+            car.move(randomNumberGenerator, MOVEMENT_THRESHOLD);
         });
     }
 
