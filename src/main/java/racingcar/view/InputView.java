@@ -14,14 +14,13 @@ public class InputView {
 
     public List<String> inputCarName() {
         String input = readInput();
-        List<String> carNames = splitCarName(input);
-        InputValidator.validateCarNames(carNames);
-        return carNames;
+        InputValidator.validateCarNamesInput(input);
+        return splitCarName(input);
     }
 
     public Integer inputTryCount() {
         String input = readInput();
-        InputValidator.validateTryCount(input);
+        InputValidator.validateTryCountInput(input);
         return Integer.parseInt(input);
     }
 }
